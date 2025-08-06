@@ -1,0 +1,139 @@
+
+
+✅ E-Commerce Database Schema Explanation
+
+
+---
+
+1. Database: ECommerceDB
+
+A container to store all tables related to the E-commerce website.
+
+Keeps data organized and isolated.
+
+
+
+---
+
+2. Customers Table
+
+Column	Description
+
+CustomerID	Primary Key. Unique ID for each customer.
+Name	Customer's full name.
+Email	Unique email for customer login/notifications.
+Phone	Contact number.
+Address	Shipping/billing address.
+
+
+Purpose:
+Stores information of users/customers who shop on the website.
+
+
+---
+
+3. Products Table
+
+Column	Description
+
+ProductID	Primary Key. Unique ID for each product.
+ProductName	Name of the product.
+Price	Product price.
+Stock	Available stock quantity.
+
+
+Purpose:
+Contains the list of products available for sale.
+
+
+---
+
+4. Orders Table
+
+Column	Description
+
+OrderID	Primary Key. Unique ID for each order.
+CustomerID	Foreign Key. Links to Customers(CustomerID).
+OrderDate	Date when order was placed.
+TotalAmount	Total value of the order.
+
+
+Purpose:
+Keeps track of each order placed by customers.
+Relates to the customer who placed it.
+
+
+---
+
+5. OrderDetails Table (Junction Table)
+
+Column	Description
+
+OrderDetailID	Primary Key. Unique ID for each item in an order.
+OrderID	Foreign Key. Links to Orders(OrderID).
+ProductID	Foreign Key. Links to Products(ProductID).
+Quantity	Number of units of the product ordered.
+Price	Price of the product at the time of order.
+
+
+Purpose:
+Handles the many-to-many relationship between Orders and Products.
+One order can have multiple products, and one product can be part of many orders.
+
+
+---
+
+6. Categories Table
+
+Column	Description
+
+CategoryID	Primary Key. Unique ID for each category.
+CategoryName	Name of the product category.
+
+
+Purpose:
+Stores product categories like Electronics, Fashion, Groceries, etc.
+
+
+---
+
+7. ProductCategory Table (Junction Table)
+
+Column	Description
+
+ProductID	Foreign Key. Links to Products(ProductID).
+CategoryID	Foreign Key. Links to Categories(CategoryID).
+
+
+Purpose:
+Handles many-to-many relationship between Products and Categories.
+A product can belong to multiple categories (e.g., "Electronics" & "Gadgets").
+
+
+---
+
+✅ Relationships Summary:
+
+Entity A	Relationship	Entity B	Type
+
+Customers	Places	Orders	One-to-Many
+Orders	Contains	OrderDetails	One-to-Many
+OrderDetails	Refers to	Products	Many-to-One
+Products	Belong to	Categories	Many-to-Many
+
+
+
+---
+
+✅ Outcome:
+
+You now have:
+
+A fully normalized schema.
+
+All primary & foreign keys defined.
+
+Handled complex relations using junction tables.
+
+Ready to generate ER diagrams, run queries, and build an actual E-commerce database.
+
